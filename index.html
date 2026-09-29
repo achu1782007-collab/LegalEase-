@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LegalEase — AI Legal Document Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">LE</div>
+        <div>
+          <h1>LegalEase</h1>
+          <span>AI Legal Documents</span>
+        </div>
+      </div>
+
+      <nav>
+        <a class="active" href="#generator">✦ Generator</a>
+        <a href="#preview">▣ Preview</a>
+        <a href="#about">ⓘ About</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <strong>Secure & editable</strong>
+        <p>Create a document, review the generated text, edit it, and export it.</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">AI-POWERED LEGAL DOCUMENT GENERATOR</p>
+          <h2>Create professional legal documents in minutes.</h2>
+          <p class="subtitle">Generate structured drafts from your document type, parties, terms, and effective date.</p>
+        </div>
+        <div class="status-pill"><span></span> Ready</div>
+      </header>
+
+      <section id="generator" class="workspace">
+        <div class="card form-card">
+          <div class="card-heading">
+            <div>
+              <p class="section-label">STEP 01</p>
+              <h3>Document details</h3>
+            </div>
+            <span class="required">Required fields</span>
+          </div>
+
+          <form id="documentForm">
+            <label for="documentType">Document Type</label>
+            <select id="documentType" required>
+              <option value="Employment Contract">Employment Contract</option>
+              <option value="Non-Disclosure Agreement">Non-Disclosure Agreement</option>
+              <option value="Lease Agreement">Lease Agreement</option>
+              <option value="Employment Offer Letter">Employment Offer Letter</option>
+              <option value="Service Agreement">Service Agreement</option>
+              <option value="Freelance Work Contract">Freelance Work Contract</option>
+              <option value="General Agreement">General Agreement</option>
+            </select>
+
+            <label for="parties">Parties Involved</label>
+            <textarea id="parties" rows="3" placeholder="Example: Jane Doe (Service Provider), TechNova Inc. (Client)" required></textarea>
+
+            <label for="terms">Terms & Conditions <span class="hint">Separate clauses with semicolons</span></label>
+            <textarea id="terms" rows="5" placeholder="Payment within 30 days; Confidentiality must be maintained; Either party may terminate with 15 days notice" required></textarea>
+
+            <label for="effectiveDate">Effective Date</label>
+            <input id="effectiveDate" type="date" required />
+
+            <button class="primary-btn" type="submit" id="generateBtn">
+              <span>✦</span> Generate Document
+            </button>
+          </form>
+        </div>
+
+        <div class="card tips-card">
+          <p class="section-label">QUICK GUIDE</p>
+          <h3>What to include</h3>
+          <div class="tip">
+            <span>01</span>
+            <div><strong>Document type</strong><p>Select the kind of legal document you need.</p></div>
+          </div>
+          <div class="tip">
+            <span>02</span>
+            <div><strong>Parties</strong><p>Enter names and roles of all involved parties.</p></div>
+          </div>
+          <div class="tip">
+            <span>03</span>
+            <div><strong>Terms</strong><p>Add important clauses separated by semicolons.</p></div>
+          </div>
+          <div class="tip">
+            <span>04</span>
+            <div><strong>Date</strong><p>Choose when the agreement becomes effective.</p></div>
+          </div>
+          <div class="legal-note">
+            <strong>Important</strong>
+            <p>This interface creates a draft for review. It does not replace advice from a qualified legal professional.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="preview" class="card preview-card">
+        <div class="card-heading">
+          <div>
+            <p class="section-label">STEP 02</p>
+            <h3>Document preview</h3>
+          </div>
+          <div class="actions">
+            <button class="secondary-btn" id="editBtn" disabled>✎ Edit</button>
+            <button class="secondary-btn" id="txtBtn" disabled>↓ TXT</button>
+            <button class="secondary-btn" id="printBtn" disabled>▣ PDF / Print</button>
+          </div>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">§</div>
+          <h4>Your generated document will appear here</h4>
+          <p>Fill in the details above and click <strong>Generate Document</strong>.</p>
+        </div>
+
+        <article id="documentPreview" class="document-paper hidden"></article>
+        <textarea id="editableDocument" class="editable-document hidden"></textarea>
+      </section>
+
+      <section id="about" class="about-grid">
+        <div class="card about-card">
+          <p class="section-label">ABOUT LEGALEASE</p>
+          <h3>Designed around the project specification</h3>
+          <p>LegalEase is designed as an AI-assisted legal document workflow with document generation, editable preview, and TXT/PDF-style export. The supplied project specification describes a FastAPI backend, Gemini integration, and a Streamlit frontend.</p>
+        </div>
+        <div class="card feature-card">
+          <div><span>✦</span><strong>AI-ready</strong><p>Structured inputs can be connected to a Gemini/FastAPI backend.</p></div>
+          <div><span>✎</span><strong>Editable</strong><p>Review and modify generated content before exporting.</p></div>
+          <div><span>↓</span><strong>Exportable</strong><p>Download plain text or print/save the document as PDF.</p></div>
+        </div>
+      </section>
+
+      <footer>© 2026 LegalEase · AI-Powered Legal Document Generator</footer>
+    </main>
+  </div>
+
+  <script src="Script.js"></script>
+</body>
+</html>
